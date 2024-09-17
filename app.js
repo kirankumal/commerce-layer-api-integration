@@ -1,11 +1,10 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 
 import {notFound, handleError} from "./middlewares/index.js"
 import productsRoute from "./resources/products/products.routes.js" 
 import categoriesRoute from "./resources/categories/categories.routes.js"
 
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;

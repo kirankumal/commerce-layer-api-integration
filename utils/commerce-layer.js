@@ -2,8 +2,8 @@ import { CommerceLayer } from '@commercelayer/sdk'
 import { authenticate, jwtDecode } from '@commercelayer/js-auth'
 
 const auth = await authenticate('client_credentials', {
-    clientId: 'RxogynP5brOxCiTklvcNhB4ouSbH7Dsdzl7bzOnSEtc',
-    clientSecret: "e8BV-qYsaeNQWcOSepqW-HXJppQtI2ZW3PzF88SJWN0"
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET
 })
 
 const decoded = jwtDecode(auth.accessToken)
