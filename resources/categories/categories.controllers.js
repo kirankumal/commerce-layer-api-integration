@@ -1,18 +1,22 @@
+import { cl } from "../../utils/commerce-layer.js";
 import { tryCatchWrapper } from "../../middlewares/index.js";
-import { axiosInstance } from "../../utils/axios.js"
 /**
  * @description Get all categories
  * @route  GET /categories
  */
+
 export const getCategories = tryCatchWrapper(async (req, res) => {
-    const response = await axiosInstance.get("sku_lists");
+      const skus = await cl.skus.list({
+        fields: {
+          skus: ['code', 'name']
+        },
+      })
 
-    const categories = response.data.data.map((item, index) => ({
-        id: item.id,
-        name: item.attributes.name,
-        slug: item.attributes.slug,
-        image: item.attributes.image_url,
-    }));
+     const skulist = await cl.sku_lists.list()
+     console.log("skulist",skulist);
 
-    return res.status(200).json({ success: true, message: "Get all categories", payload: { categories } });
+    const skulistitem = await cl.sku_list_items.list()
+     console.log("skulisitem",skulistitem);
+     
+    return res.status(200).json({ success: true, message: "Get all categories", payload: { categories: skus } });
 })

@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.7",
+    "@commercelayer/js-auth": "^6.5.0",
+    "@commercelayer/sdk": "^6.18.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0"
   },
