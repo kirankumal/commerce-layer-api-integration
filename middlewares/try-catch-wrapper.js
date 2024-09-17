@@ -6,7 +6,6 @@ export function tryCatchWrapper(func) {
       await func(req, res, next);
     } catch (error) {
       console.log(error);
-      
       return next(createCustomError(error, 400));
     }
   };
